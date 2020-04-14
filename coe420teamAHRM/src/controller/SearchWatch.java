@@ -42,7 +42,14 @@ public class SearchWatch extends HttpServlet {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
 		String watchID = request.getParameter("watchid");
-		int ID = Integer.parseInt(watchID);
+		int ID=-1; 
+		try {
+			ID = Integer.parseInt(watchID);
+		}
+		catch (Exception e) {
+			ID=-1;
+		}
+		
 		WatchInventory watches = new WatchInventory();
 		watch = watches.findWatch(ID);
 		if(watch!= null) {

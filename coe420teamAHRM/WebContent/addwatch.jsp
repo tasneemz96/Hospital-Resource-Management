@@ -18,11 +18,12 @@
     <div class="" style="height:100vh; overflow:auto; max-height:100%; width:100vw">
         <div class="container-fluid bg-dark text-white pt-3 pb-2">
             <h1>HRM</h1>
-            <a href="Branch" class="text-white"><h5>Branch name, Branch location</h5></a>
+            <h5>Branch name, Branch location</h5>
         </div>
 
         <div class="container-fluid bg-light text-success pt-2 pb-1 shadow-sm">
-            <h5><a href="Watches" class="text-dark">> Watches > </a>Add watch</h5>
+            <h5><a href="Branch" class="text-dark">> Home </a>
+            <a href="Watches" class="text-dark">> Watches > </a>Add watch</h5>
         </div>
 
         <div class="d-flex justify-content-center align-items-center w-100 h-75 pt-3">
@@ -62,7 +63,7 @@
                 </div>
                 <div class="row pt-1">
                     <div class="col"><a href="Watches" class="text-decoration-none">
-                        <button type="reset" class="btn btn-outline-secondary btn-block rounded-0"
+                        <button type="button" class="btn btn-outline-secondary btn-block rounded-0"
                             id="cancel">Cancel</button></a>
                     </div>
                 </div>

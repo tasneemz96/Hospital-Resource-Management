@@ -39,7 +39,14 @@ public class SearchPatient extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String patientID = request.getParameter("patientID");
-		int ID = Integer.parseInt(patientID.split("P")[1]);
+		int ID=-1;
+		try {
+			ID = Integer.parseInt(patientID.split("P")[1]);	
+		}
+		catch (Exception e){
+			ID=-1;
+		}
+		
 		PatientList patients = new PatientList();
 		patient = patients.findPatient(ID);
 		if(patient == null) {

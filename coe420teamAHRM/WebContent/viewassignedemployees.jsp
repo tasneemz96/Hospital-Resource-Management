@@ -18,11 +18,12 @@
     <div class="" style="height:100vh; overflow:auto; max-height:100%;">
         <div class="container-fluid bg-dark text-white pt-3 pb-2">
             <h1>HRM</h1>
-            <a href="Branch" class="text-white"><h5>Branch name, Branch location</h5></a>
+            <h5>Branch name, Branch location</h5>
         </div>
 
         <div class="container-fluid bg-light text-success pt-2 pb-1 shadow-sm">
-            <h5><a href="Patients" class="text-dark"> > Patients</a><a href="SearchPatient" class="text-dark"> > Search patient > </a>View all assigned doctors and nurses</h5>
+            <h5><a href="Branch" class="text-dark">> Home </a>
+            <a href="Patients" class="text-dark"> > Patients</a><a href="SearchPatient" class="text-dark"> > Search patient > </a>View all assigned doctors and nurses</h5>
         </div>
 
         <div class="container-fluid pt-3">

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +22,14 @@
 <body>
 	<div class="container-fluid bg-dark text-white pt-3 pb-2">
 		<h1>HRM</h1>
-		<a href="Branch" class="text-white"><h5>Branch name, Branch
-				location</h5></a>
+		<h5>Branch name, Branch location</h5>
 
 	</div>
 
 	<div class="container-fluid bg-light text-success pt-2 pb-1 shadow-sm">
-		<h5>> Patients</h5>
+		<h5>
+			<a href="Branch" class="text-dark">> Home </a> > Patients
+		</h5>
 	</div>
 
 
@@ -37,19 +38,19 @@
 	<div
 		class="d-flex flex-column justify-content-center align-items-center"
 		style="height: 500px;">
-		<div classs="d-flex flex-row m-3 align-items-end"
+		<div class="d-flex flex-row m-3 align-items-end"
 			style="width: 1050px;">
 			<div class="col">
 				<form method="post" action="SearchPatient">
 					<div class="input-group mb-3">
-						<input type="text" class="form-control rounded-0" name="patientID" required
-							id="patientID" placeholder="Search patient by ID...">
+						<input type="text" class="form-control rounded-0" name="patientID"
+							required id="patientID" placeholder="Search patient by ID...">
 						<div class="input-group-append">
-							
-								<button class="btn input-group-text rounded-0" type="submit">
-									<i class="material-icons">search</i>
-								</button>
-							
+
+							<button class="btn input-group-text rounded-0" type="submit">
+								<i class="material-icons">search</i>
+							</button>
+
 						</div>
 					</div>
 				</form>

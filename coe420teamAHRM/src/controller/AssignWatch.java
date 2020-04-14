@@ -44,21 +44,31 @@ public class AssignWatch extends HttpServlet {
 		// doGet(request, response);
 		
 		String patientID = request.getParameter("patientid");
-		int ID = Integer.parseInt(patientID.split("P")[1]);
+		int ID = -1;
+		try {
+			ID = Integer.parseInt(patientID.split("P")[1]);
+		}
+		catch(Exception e) {
+			ID=-1;
+		}
 		String brand = request.getParameter("brand");
 		String model = request.getParameter("model");
 		
 		System.out.println("Patient: " + patientID + "\t ID: " + ID + "\tBrand: " + brand + "\tModel: " + model);
 		
 		WatchInventory watches = new WatchInventory();
-		Watch watch = watches.assignWatch(patientID, brand, model);
+		Watch watch;
 		
-		if(watch != null) {
-			PatientList patients = new PatientList();
-			Patient patient = patients.findPatient(ID);
-			
-			if(patient != null) { // valid patiendID entered
-				if(patient.getWatchID()!=-1) {
+		PatientList patients = new PatientList();
+		Patient patient = patients.findPatient(ID);
+		
+		boolean pinvalid = false;
+		
+		if(patient!=null) { // valid patient
+			pinvalid = false;
+			watch = watches.assignWatch(patientID, brand, model);
+			if(watch != null) { // found a watch 
+				if(patient.getWatchID()!=-1) { // if patient had a watch previously assigned
 					Watch oldWatch = watches.findWatch(patient.getWatchID());
 					oldWatch.setPatientID("Unassigned");
 					oldWatch.setAvailable(true);
@@ -68,13 +78,18 @@ public class AssignWatch extends HttpServlet {
 				patient.setWatchID(watch.getWatchID());
 				patients.updatePatient(patient);
 			}
-			else {// invalid patient id 
-				response.sendRedirect("ViewAllPatients"); // temporary fix 
-			}
-			
-			
 		}
-		response.sendRedirect("ViewAllWatches");
+		else {
+			pinvalid = true;
+		}
+		
+		if(pinvalid) {
+			response.sendRedirect("ViewAllPatients"); // temporary fix
+		}
+		else {
+			response.sendRedirect("ViewAllWatches");	
+		}
+		
 	}
 
 }
