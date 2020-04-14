@@ -57,15 +57,22 @@ public class AssignWatch extends HttpServlet {
 			PatientList patients = new PatientList();
 			Patient patient = patients.findPatient(ID);
 			
-			if(patient.getWatchID()!=-1) {
-				Watch oldWatch = watches.findWatch(patient.getWatchID());
-				oldWatch.setPatientID("Unassigned");
-				oldWatch.setAvailable(true);
-				watches.updateWatch(oldWatch);
+			if(patient != null) { // valid patiendID entered
+				if(patient.getWatchID()!=-1) {
+					Watch oldWatch = watches.findWatch(patient.getWatchID());
+					oldWatch.setPatientID("Unassigned");
+					oldWatch.setAvailable(true);
+					watches.updateWatch(oldWatch);
+				}
+				
+				patient.setWatchID(watch.getWatchID());
+				patients.updatePatient(patient);
+			}
+			else {// invalid patient id 
+				response.sendRedirect("ViewAllPatients"); // temporary fix 
 			}
 			
-			patient.setWatchID(watch.getWatchID());
-			patients.updatePatient(patient);
+			
 		}
 		response.sendRedirect("ViewAllWatches");
 	}
