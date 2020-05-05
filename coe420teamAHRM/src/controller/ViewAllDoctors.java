@@ -1,0 +1,51 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.DoctorList;
+import model.PatientList;
+
+/**
+ * Servlet implementation class ViewAllDoctors
+ */
+@WebServlet("/ViewAllDoctors")
+public class ViewAllDoctors extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ViewAllDoctors() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String branchID = (String)request.getSession().getAttribute("branchID");
+		DoctorList doctors = new DoctorList(branchID);
+		request.setAttribute("doctors", doctors.getDoctorList());
+		request.setAttribute("branchID", branchID);
+		RequestDispatcher req = request.getRequestDispatcher("viewalldoctors.jsp");
+		req.include(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
