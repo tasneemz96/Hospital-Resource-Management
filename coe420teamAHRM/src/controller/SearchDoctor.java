@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Doctor;
 import model.DoctorList;
-import model.PatientList;
 
 /**
  * Servlet implementation class SearchDoctor

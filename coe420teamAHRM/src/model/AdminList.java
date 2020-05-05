@@ -16,14 +16,6 @@ public class AdminList {
 		// this.branchID = branchID;
 	}
 	
-	/*public List<BranchAdmin> getBranchAdmins(){
-		
-	}*/
-	
-	/*public List<TopLevelAdmin> getTopLevelAdmin(){
-		
-	}
-	*/
 	public String getBranchID() {return branchID;}
 	public void setBranchID(String branchID) {this.branchID = branchID;}
 	
@@ -32,18 +24,5 @@ public class AdminList {
 		
 		return admin;
 	}
-	
-	/*public boolean checkAdminID(int adminID) {
-		
-		// return admins.containsKey(adminID);
-	}*/
-	
-	/*public boolean checkTLAdminID(int adminID) {
-		
-	}*/
-	
-	/*public TopLevelAdmin findTLAdmin(int adminID) {
-		
-	}*/
 	
 }

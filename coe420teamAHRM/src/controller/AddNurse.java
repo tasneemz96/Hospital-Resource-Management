@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Doctor;
-import model.DoctorList;
 import model.Nurse;
 import model.NurseList;
 
