@@ -58,7 +58,7 @@ public class SearchDoctor extends HttpServlet {
 			request.getRequestDispatcher("doctors.jsp").include(request, response);
 		}
 		else {
-		System.out.println("tPatient is: "+doctor.getFirstName() + " " + doctor.getLastName());
+		System.out.println(" is: "+doctor.getFirstName() + " " + doctor.getLastName());
 		request.setAttribute("doctor", doctor);
 		request.getRequestDispatcher("searchdoctor.jsp").include(request, response);
 		}

@@ -49,7 +49,7 @@
 
 		<div
 			class="d-flex flex-column justify-content-center align-items-center h-75">
-			<div classs="d-flex flex-row m-3 align-items-end"
+			<div class="d-flex flex-row m-3 align-items-end"
 				style="width: 1050px;">
 				<div class="col">
 					<form method="post" action="SearchDoctor">

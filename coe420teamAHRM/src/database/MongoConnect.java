@@ -41,7 +41,7 @@ public class MongoConnect {
 	private static String doctor = "Doctors";
 	private static String nurse = "Nurses";
 
-	private static String URI = "mongodb+srv://tasneem:tasneem@cluster0-wndro.mongodb.net/test?retryWrites=true&w=majority&connectTimeoutMS=60000&socketTimeoutMS=60000";
+	private static String URI = "mongodb+srv://<username>:<password>@cluster0-wndro.mongodb.net/test?retryWrites=true&w=majority&connectTimeoutMS=60000&socketTimeoutMS=60000";
 
 	public MongoConnect() {
 
@@ -226,8 +226,8 @@ public class MongoConnect {
 		try {
 
 			FindIterable<Document> pat = patientsCollection.find(new Document("patientID", patientID));
-			Document p = pat.first();
-			if (patient != null) {
+			Document p = patientsCollection.find(new Document("patientID", patientID)).first();
+			if (p != null) {
 				Patient patient = new Patient((String) (p.get("patientID")), (String) (p.get("firstname")),
 						(String) (p.get("lastname")), (String) (p.get("address")), (String) (p.get("phone")),
 						(String) (p.get("diagnosis")), (boolean) (p.get("insurance")), (String) (p.get("branchID")),
@@ -450,13 +450,15 @@ public class MongoConnect {
 
 		Document query = new Document("watchID", watchID);
 		// DBObject query = new BasicDBObject("watchID", watchID);
-		FindIterable<Document> wat = watchesCollection.find(query);
-		Document w = wat.first();
+		Document w = watchesCollection.find(query).first();
 		// DBObject w = watchesCollection.findOne(query);
-		Watch watch = new Watch((String) (w.get("watchID")), (String) (w.get("brand")), (String) (w.get("model")),
-				(boolean) (w.get("available")), (String) (w.get("patientID")), (String) (w.get("branchID")));
-
-		return watch;
+		if(w != null) {
+			Watch watch = new Watch((String) (w.get("watchID")), (String) (w.get("brand")), (String) (w.get("model")),
+					(boolean) (w.get("available")), (String) (w.get("patientID")), (String) (w.get("branchID")));
+			return watch;
+		}
+		return null;
+		
 	}
 
 	public List<Watch> findAvailableWatches(String branchID) {

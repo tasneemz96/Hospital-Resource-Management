@@ -44,7 +44,7 @@ request.getSession().setAttribute("branchID", branch.getBranchID());%>
 	<div
 		class="d-flex flex-column justify-content-center align-items-center"
 		style="height: 500px;">
-		<div classs="d-flex flex-row m-3 align-items-end"
+		<div class="d-flex flex-row m-3 align-items-end"
 			style="width: 1050px;">
 			<div class="col">
 				<form method="post" action="SearchWatch">

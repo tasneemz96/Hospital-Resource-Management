@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,7 +55,12 @@ public class SearchWatch extends HttpServlet {
 			request.getRequestDispatcher("searchwatch.jsp").include(request, response);
 		}
 		else {
-			response.sendRedirect("ViewAllWatches");
+			response.setContentType("text/html");
+			PrintWriter pw=response.getWriter();
+			pw.println("<script type=\"text/javascript\">");
+			pw.println("alert('Invalid watch ID. Try again.');");
+			pw.println("</script>");
+			request.getRequestDispatcher("watches.jsp").include(request, response);
 		}
 	}
 

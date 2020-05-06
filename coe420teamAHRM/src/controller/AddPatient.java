@@ -60,7 +60,7 @@ public class AddPatient extends HttpServlet {
 			pw.println("</script>");
 			request.getRequestDispatcher("addpatient.jsp").include(request, response);
 		}
-		else if(firstname.matches(".*\\d.*") || lastname.matches(".*\\d.*") || !phone.matches("[0-9]+")) {
+		else if(firstname.matches(".*\\d.*") || lastname.matches(".*\\d.*") || !(request.getParameter("phone").trim().matches("[0-9]+"))) {
 			System.out.println(firstname + " " + lastname + " " + phone);
 			response.setContentType("text/html");
 			PrintWriter pw=response.getWriter();

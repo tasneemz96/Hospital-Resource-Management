@@ -128,11 +128,11 @@ request.setAttribute("branchID", branch.getBranchID());
 				</div>
 				<div class="row w-100 mt-3 mb-3" style="height: 50px;">
 					<div class="col">
-						<a href="ViewAssignedEmployees" class="text-decoration-none">
+						
 							<button
 								class="btn btn-outline-secondary btn-block rounded-0 h-100">View
 								assigned doctors and nurses</button>
-						</a>
+					
 					</div>
 				</div>
 
